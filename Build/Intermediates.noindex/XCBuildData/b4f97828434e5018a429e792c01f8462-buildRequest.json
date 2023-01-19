@@ -1,0 +1,57 @@
+{
+  "_buildCommand2" : {
+    "command" : "build",
+    "skipDependencies" : false,
+    "style" : "buildAndRun"
+  },
+  "buildCommand" : "build",
+  "configuredTargets" : [
+    {
+      "guid" : "fc3e5720470f9dc00cb7c2f0bf5cbc96edd0db198a45dff8c3f5bcc1c9a26255"
+    }
+  ],
+  "containerPath" : "/Users/ljh/DSTR-ljh/DSTR_Assignment/DSTR_Assignment.xcodeproj",
+  "continueBuildingAfterErrors" : false,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "activeArchitecture" : "arm64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "macosx",
+      "sdk" : "macosx13.1",
+      "sdkVariant" : "macos",
+      "supportedArchitectures" : [
+        "arm64e",
+        "arm64",
+        "x86_64"
+      ],
+      "targetArchitecture" : "arm64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/ljh/DSTR-ljh/DSTR_Assignment/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/ljh/DSTR-ljh/DSTR_Assignment/Build/Products",
+      "derivedDataPath" : "/Users/ljh/Library/Developer/Xcode/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/ljh/Library/Developer/Xcode/DerivedData/DSTR_Assignment-dfgbcbzglxyursdokcmjpuntaxbw/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/ljh/Library/Developer/Xcode/DerivedData/DSTR_Assignment-dfgbcbzglxyursdokcmjpuntaxbw/Index.noindex/PrecompiledHeaders",
+      "pchPath" : "/Users/ljh/DSTR-ljh/DSTR_Assignment/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO"
+        }
+      }
+    }
+  },
+  "schemeCommand" : "launch",
+  "schemeCommand2" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}
