@@ -104,6 +104,18 @@ public:
             current = current->nextAddress;
         }
     }
+    
+    //Remove memory buffer of every Car object
+    ~CarLinkedList() {
+        // iterate through the linked list
+        Car* current = head;
+        while(current) {
+            Car* next = current->nextAddress;
+            // delete the node
+            delete current;
+            current = next;
+        }
+    }
 };
 
 class HashTable {
@@ -141,25 +153,20 @@ public:
         }
     }
     
-    //Write a hash function that uses modulo algorithm
+    
     int hashFunction(int id) {
+        //Write a hash function that uses modulo algorithm
         return id % size;
     }
     
     ~HashTable() {
-        for (int i = 0; i < size; i++) {
-            Car* current = CarLinkedListArray[i].getHead();
-            while (current != nullptr) {
-                Car* temp = current;
-                current = current->nextAddress;
-                delete temp;
-            }
-        }
+        // remove memory buffer of every CarLinkedList object
         delete[] CarLinkedListArray;
     }
 };
 
 int main(int argc, const char * argv[]) {
+    cout << "testing" << endl;
     //Create a Hash Table
     HashTable* hashTable = new HashTable(1523);
     
