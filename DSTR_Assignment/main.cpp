@@ -166,7 +166,6 @@ public:
 };
 
 int main(int argc, const char * argv[]) {
-    cout << "testing" << endl;
     //Create a Hash Table
     HashTable* hashTable = new HashTable(1523);
     
