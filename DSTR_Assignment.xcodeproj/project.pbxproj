@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		36B6215E2977396C009E5DFB /* DSTR_Assignment */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DSTR_Assignment; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B621612977396C009E5DFB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		36B62184297AC785009E5DFB /* carlist.csv */ = {isa = PBXFileReference; lastKnownFileType = file; name = carlist.csv; path = Build/Products/Debug/carlist.csv; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				36B621612977396C009E5DFB /* main.cpp */,
+				36B62184297AC785009E5DFB /* carlist.csv */,
 			);
 			path = DSTR_Assignment;
 			sourceTree = "<group>";

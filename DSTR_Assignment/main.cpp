@@ -8,6 +8,8 @@
 #include <iostream>
 #include <string>
 #include <array>
+#include <fstream>
+#include <sstream>
 using namespace std;
 
 class Car {
@@ -75,6 +77,7 @@ public:
         if (head == NULL)
         {
             head = car;
+            car->nextAddress = nullptr; //Set the nextAddress of the new node as nullptr
             return;
         }
         Car* current = head;
@@ -85,7 +88,7 @@ public:
             current = current->nextAddress;
         }
         current->nextAddress = car;
-        //current->nextAddress = nullptr;
+        car->nextAddress = nullptr; //Set the nextAddress of the new node as nullptr
     }
     
     void list(int Number)
@@ -97,6 +100,9 @@ public:
         cout << "Info of Number " << Number+1 << " Linked List => " << endl;
         Car* current = head;
         while(true) {
+            if (current->carID == 17) {
+                break;
+            }
             cout << "ID: " << current->carID << " Title: " << current->title << " Registration Date: " << current->registrationDate << " Mileage: " << current->mileage << " Fuel Type: " << current->fuelType << " Transmission: " << current->transmission << " Engine Size: " << current->engineSize << " Doors: " << current->doors << " Color: " << current->color << " Body Type: " << current->bodyType << " Price: " << current->price << " URL: " << current->url << " Sale Date: " << current->saleDate << endl;
             if (current->nextAddress == nullptr) {
                 break;
@@ -142,8 +148,6 @@ public:
         //Add the car to the corresponding linked list
         CarLinkedListArray[CarLinkedListIndex].addNewNode(car);
         
-        cout << "added successfully" << endl;
-        
     }
     
     void list() {
@@ -165,10 +169,69 @@ public:
     }
 };
 
-int main(int argc, const char * argv[]) {
+HashTable* readCarsFromFile(string fileName) {
     //Create a Hash Table
     HashTable* hashTable = new HashTable(1523);
+    //read cars data from file
+    ifstream file(fileName);
+    if(file.is_open()) {
+        string line;
+        int carID = 0;
+        while (getline(file, line)) {
+            ++carID;
+            stringstream ss(line);
+            string item;
+            string title;
+            int registrationDate;
+            int mileage;
+            string fuelType;
+            string transmission;
+            double engineSize;
+            int doors;
+            string color;
+            string bodyType;
+            double price;
+            string url;
+            string saleDate;
+            getline(ss, item, ',');
+            title = item;
+            getline(ss, item, ',');
+            price = stod(item);
+            getline(ss, item, ',');
+            registrationDate = stoi(item);
+            getline(ss, item, ',');
+            mileage = stoi(item);
+            getline(ss, item, ',');
+            fuelType = item;
+            getline(ss, item, ',');
+            transmission = item;
+            getline(ss, item, ',');
+            engineSize = stod(item);
+            getline(ss, item, ',');
+            doors = stoi(item);
+            getline(ss, item, ',');
+            color = item;
+            getline(ss, item, ',');
+            bodyType = item;
+            getline(ss, item, ',');
+            url = item;
+            getline(ss, item, ',');
+            saleDate = item;
+            Car* car = new Car(carID, title, registrationDate, mileage, fuelType, transmission, engineSize, doors, color, bodyType, price, url, saleDate);
+            hashTable->add(car);
+        }
+    } else {
+        cout << "Error opening file" << endl;
+        return NULL;
+    }
+    file.close();
+    cout << "Read carlist.csv successfully" << endl;
+    return hashTable;
+}
+
+int main(int argc, const char * argv[]) {
     
+    HashTable* hashTable = readCarsFromFile("carlist.csv");
     //Menu
     int option;
     bool loop = true;
@@ -251,12 +314,14 @@ int main(int argc, const char * argv[]) {
             }
             case 2:
             {
+                cout << "HashTable address: " << &hashTable << endl;
                 hashTable->list();
                 break;
             }
             case 3:
             {
                 loop = false;
+                delete hashTable;
             }
             default:
                 break;
